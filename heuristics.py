@@ -229,6 +229,8 @@ PickGiven5_FIFO      = EvalStructure([(SymbolCountEvaluation(2,1),5),
 
 PickGiven5_FILO      = EvalStructure([(SymbolCountEvaluation(2,1),5),
                                  (FILOEvaluation(),1)])
+
+PickGiven5           = PickGiven5_FIFO
 """
 Experiences have shown that picking always the smallest clause (by
 symbol count) isn't optimal, but that it pays off to interleave smallest
@@ -244,6 +246,8 @@ PickGiven2_FIFO      = EvalStructure([(SymbolCountEvaluation(2,1),2),
 PickGiven2_FILO      = EvalStructure([(SymbolCountEvaluation(2,1),2),
                                  (FILOEvaluation(),1)])
 
+PickGiven2           = PickGiven2_FIFO
+
 """
 See above, but now with a pick-given ration of 2 for easier testing.
 """
@@ -256,7 +260,9 @@ GivenClauseHeuristics = {
     "PickGiven5_FIFO" : PickGiven5_FIFO,
     "PickGiven5_FILO" : PickGiven5_FILO,
     "PickGiven2_FIFO" : PickGiven2_FIFO,
-    "PickGiven2_FILO" : PickGiven2_FILO}
+    "PickGiven2_FILO" : PickGiven2_FILO,
+    "PickGiven2"      : PickGiven2,
+    "PickGiven5"      : PickGiven5}
 """
 Table associating name and evaluation function, so that we can select
 the function by name.
