@@ -102,6 +102,26 @@ class FIFOEvaluation(ClauseEvaluationFunction):
         return self.fifocounter
 
 
+class FILOEvaluation(ClauseEvaluationFunction):
+    """
+    Class implementing first-in-first-out evaluation - i.e. clause
+    evalutations increase over time (and independent of the clause).
+    """
+    def __init__(self):
+        """
+        Initialize object.
+        """
+        self.name        = "FILOEval"
+        self.filocounter = 8
+
+    def hEval(self, clause):
+        """
+        Actual evaluation function.
+        """
+        self.filocounter = self.filocounter - 1
+        return self.filocounter
+
+
 class SymbolCountEvaluation(ClauseEvaluationFunction):
     """
     Implement a standard symbol counting heuristic.
@@ -183,9 +203,17 @@ class EvalStructure(object):
 FIFOEval        = EvalStructure([(FIFOEvaluation(),1)])
 """
 Strict first-in/first out evaluation. This is obviously fair
-(i.e. every clause will be picked eventuall), but not a good search
+(i.e. every clause will be picked eventually), but not a good search
 strategy.
 """
+
+FILOEval        = EvalStructure([(FILOEvaluation(),1)])
+"""
+Strict first-in/last out evaluation. This is obviously fair
+(i.e. every clause will be picked eventually), but not a good search
+strategy.
+"""
+
 
 SymbolCountEval = EvalStructure([(SymbolCountEvaluation(2,1),1)])
 """
@@ -196,8 +224,11 @@ clauses p(X1), p(X2), p(X3),.... that are all smaller than q(f(X)), so
 that the latter is never selected.
 """
 
-PickGiven5      = EvalStructure([(SymbolCountEvaluation(2,1),5),
+PickGiven5_FIFO      = EvalStructure([(SymbolCountEvaluation(2,1),5),
                                  (FIFOEvaluation(),1)])
+
+PickGiven5_FILO      = EvalStructure([(SymbolCountEvaluation(2,1),5),
+                                 (FILOEvaluation(),1)])
 """
 Experiences have shown that picking always the smallest clause (by
 symbol count) isn't optimal, but that it pays off to interleave smallest
@@ -207,8 +238,12 @@ has stated that "the optimal pick-given ratio is five." Since he is a
 very smart person we use this value here.
 """
 
-PickGiven2      = EvalStructure([(SymbolCountEvaluation(2,1),2),
+PickGiven2_FIFO      = EvalStructure([(SymbolCountEvaluation(2,1),2),
                                  (FIFOEvaluation(),1)])
+
+PickGiven2_FILO      = EvalStructure([(SymbolCountEvaluation(2,1),2),
+                                 (FILOEvaluation(),1)])
+
 """
 See above, but now with a pick-given ration of 2 for easier testing.
 """
@@ -216,9 +251,12 @@ See above, but now with a pick-given ration of 2 for easier testing.
 
 GivenClauseHeuristics = {
     "FIFO"       : FIFOEval,
+    "FILO"       : FILOEval,
     "SymbolCount": SymbolCountEval,
-    "PickGiven5" : PickGiven5,
-    "PickGiven2" : PickGiven2}
+    "PickGiven5_FIFO" : PickGiven5_FIFO,
+    "PickGiven5_FILO" : PickGiven5_FILO,
+    "PickGiven2_FIFO" : PickGiven2_FIFO,
+    "PickGiven2_FILO" : PickGiven2_FILO}
 """
 Table associating name and evaluation function, so that we can select
 the function by name.
@@ -277,6 +315,27 @@ cnf(c8,axiom,(c=d|h(i(a))!=h(i(e)))).
         self.assertTrue(e6<e7)
         self.assertTrue(e7<e8)
 
+    def testFILO(self):
+        """
+        Test that FILO evaluation works as expected.
+        """
+        eval = FILOEvaluation()
+        e1 = eval(self.c1)
+        e2 = eval(self.c2)
+        e3 = eval(self.c3)
+        e4 = eval(self.c4)
+        e5 = eval(self.c5)
+        e6 = eval(self.c6)
+        e7 = eval(self.c7)
+        e8 = eval(self.c8)
+        self.assertTrue(e1>e2)
+        self.assertTrue(e2>e3)
+        self.assertTrue(e3>e4)
+        self.assertTrue(e4>e5)
+        self.assertTrue(e5>e6)
+        self.assertTrue(e6>e7)
+        self.assertTrue(e7>e8)
+
     def testSymbolCount(self):
         """
         Test that symbol counting works as expected.
@@ -304,7 +363,7 @@ cnf(c8,axiom,(c=d|h(i(a))!=h(i(e)))).
         Test composite evaluations.
         """
         eval_funs = EvalStructure([(SymbolCountEvaluation(2,1),2),
-                                   (FIFOEvaluation(),1)])
+                                   (FILOEvaluation(),1)])
 
         evals = eval_funs.evaluate(self.c1)
         self.assertEqual(len(evals), 2)
