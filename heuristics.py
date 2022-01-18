@@ -81,6 +81,41 @@ class ClauseEvaluationFunction(object):
         """
         assert False and "Virtual base class is not callable"
 
+class UnitEvaluation(ClauseEvaluationFunction):
+    """
+    Class represeting unit evaluation of clauses.
+    """
+    def __init__(self):
+        """
+        Initialize object
+        """
+        self.name = "Sample"
+    
+    def hEval(self, clause):
+        """
+        Sample ordering of clause different
+        """
+        if clause.isUnit():
+            return clause.weight(5, 3)
+        return clause.weight(2, 1)
+
+class HornClouseEvaluation(ClauseEvaluationFunction):
+    """
+    Class represeting Horn clouse evaluation of clauses.
+    """
+    def __init__(self):
+        """
+        Initialize object
+        """
+        self.name = "Sample"
+    
+    def hEval(self, clause):
+        """
+        Sample ordering of clause different
+        """
+        if clause.isHorn():
+            return clause.weight(5, 3)
+        return clause.weight(2, 1)
 
 class FIFOEvaluation(ClauseEvaluationFunction):
     """
@@ -252,6 +287,11 @@ PickGiven2           = PickGiven2_FIFO
 See above, but now with a pick-given ration of 2 for easier testing.
 """
 
+HornEval      = EvalStructure([(SymbolCountEvaluation(2, 1), 1),
+                                  (HornClouseEvaluation(), 1)])
+
+UnitEval      = EvalStructure([(SymbolCountEvaluation(2, 1), 1),
+                                  (UnitEvaluation(), 1)])
 
 GivenClauseHeuristics = {
     "FIFO"       : FIFOEval,
@@ -261,8 +301,11 @@ GivenClauseHeuristics = {
     "PickGiven5_FILO" : PickGiven5_FILO,
     "PickGiven2_FIFO" : PickGiven2_FIFO,
     "PickGiven2_FILO" : PickGiven2_FILO,
-    "PickGiven2"      : PickGiven2,
-    "PickGiven5"      : PickGiven5}
+    "PickGiven5" : PickGiven5,
+    "PickGiven2" : PickGiven2,
+    "HornEval"   : HornEval,
+    "UnitEval"   : UnitEval}
+
 """
 Table associating name and evaluation function, so that we can select
 the function by name.
