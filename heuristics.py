@@ -81,6 +81,41 @@ class ClauseEvaluationFunction(object):
         """
         assert False and "Virtual base class is not callable"
 
+class UnitClauseEvaluation(ClauseEvaluationFunction):
+    """
+    Class represeting unit evaluation of clauses.
+    """
+    def __init__(self):
+        """
+        Initialize object
+        """
+        self.name = "Sample"
+    
+    def hEval(self, clause):
+        """
+        Sample ordering of clause different
+        """
+        if clause.isUnit():
+            return clause.weight(5, 3)
+        return clause.weight(2, 1)
+
+class HornClauseEvaluation(ClauseEvaluationFunction):
+    """
+    Class represeting Horn clouse evaluation of clauses.
+    """
+    def __init__(self):
+        """
+        Initialize object
+        """
+        self.name = "Sample"
+    
+    def hEval(self, clause):
+        """
+        Sample ordering of clause different
+        """
+        if clause.isHorn():
+            return clause.weight(5, 3)
+        return clause.weight(2, 1)
 
 class FIFOEvaluation(ClauseEvaluationFunction):
     """
@@ -120,17 +155,6 @@ class FILOEvaluation(ClauseEvaluationFunction):
         """
         self.filocounter = self.filocounter - 1
         return self.filocounter
-
-
-"""ZZ:  Horn Clauses"""
-class HornEvaluation(ClauseEvaluationFunction):
-        def __init__(self):
-            self.name = "HornEval"
-            self.head = None
-            self.premise_symbols = None
-
-        def hEval(self, clause):
-            return clause.isHorn()
 
 
 class SymbolCountEvaluation(ClauseEvaluationFunction):
@@ -210,8 +234,6 @@ class EvalStructure(object):
         self.current_count = self.current_count - 1
         return self.current
 
-"""ZZ:  Horn Clauses"""
-HornEval        = EvalStructure([(HornEvaluation(),1)])
 
 FIFOEval        = EvalStructure([(FIFOEvaluation(),1)])
 """
@@ -244,7 +266,11 @@ PickGiven5_FILO      = EvalStructure([(SymbolCountEvaluation(2,1),5),
                                  (FILOEvaluation(),1)])
 
 PickGiven5_Horn      = EvalStructure([(SymbolCountEvaluation(2,1),5),
-                                 (HornEvaluation(),1)])
+                                 (HornClauseEvaluation(),1)])
+
+PickGiven5_Unit      = EvalStructure([(SymbolCountEvaluation(2,1),5),
+                                 (UnitClauseEvaluation(),1)])
+
 
 PickGiven5           = PickGiven5_Horn
 """
@@ -263,7 +289,10 @@ PickGiven2_FILO      = EvalStructure([(SymbolCountEvaluation(2,1),2),
                                  (FILOEvaluation(),1)])
 
 PickGiven2_Horn      = EvalStructure([(SymbolCountEvaluation(2,1),2),
-                                 (HornEvaluation(),1)])
+                                 (HornClauseEvaluation(),1)])
+
+PickGiven2_Unit      = EvalStructure([(SymbolCountEvaluation(2,1),2),
+                                 (UnitClauseEvaluation(),1)])
 
 PickGiven2           = PickGiven2_Horn
 
@@ -271,20 +300,29 @@ PickGiven2           = PickGiven2_Horn
 See above, but now with a pick-given ration of 2 for easier testing.
 """
 
+HornEval      = EvalStructure([(SymbolCountEvaluation(2, 1), 1),
+                                  (HornClauseEvaluation(), 1)])
+
+UnitEval      = EvalStructure([(SymbolCountEvaluation(2, 1), 1),
+                                  (UnitClauseEvaluation(), 1)])
 
 GivenClauseHeuristics = {
-    "FIFO"       : FIFOEval,
-    "FILO"       : FILOEval,
-    "SymbolCount": SymbolCountEval,
-    "Horn": HornEval,
+    "FIFO"            : FIFOEval,
+    "FILO"            : FILOEval,
+    "SymbolCount"     : SymbolCountEval,
+    "Horn"            : HornEval,
+    "UnitEval"        : UnitEval,
     "PickGiven5_FIFO" : PickGiven5_FIFO,
     "PickGiven5_FILO" : PickGiven5_FILO,
     "PickGiven5_Horn" : PickGiven5_Horn,
+    "PickGiven5_Unit" : PickGiven5_Unit,
     "PickGiven2_FIFO" : PickGiven2_FIFO,
     "PickGiven2_FILO" : PickGiven2_FILO,
     "PickGiven2_Horn" : PickGiven2_Horn,
+    "PickGiven2_Unit" : PickGiven2_Unit,
     "PickGiven2"      : PickGiven2,
     "PickGiven5"      : PickGiven5}
+
 """
 Table associating name and evaluation function, so that we can select
 the function by name.
@@ -416,18 +454,6 @@ cnf(c8,axiom,(c=d|h(i(a))!=h(i(e)))).
         self.assertEqual(eval_funs.nextEval(),0)
         self.assertEqual(eval_funs.nextEval(),0)
         self.assertEqual(eval_funs.nextEval(),1)
-
-        # """ZZ:  Horn Clauses"""
-        # eval_funsHorn = EvalStructure([(HornEvaluation(),2), (FIFOEvaluation(),1)])
-        # evalsHorn = eval_funsHorn.evaluate(self.c1)
-        # self.assertEqual(len(evalsHorn), 2)
-        # self.assertEqual(eval_funsHorn.nextEval(),0)
-        # self.assertEqual(eval_funsHorn.nextEval(),0)
-        # self.assertEqual(eval_funsHorn.nextEval(),1)
-        # self.assertEqual(eval_funsHorn.nextEval(),0)
-        # self.assertEqual(eval_funsHorn.nextEval(),0)
-        # self.assertEqual(eval_funsHorn.nextEval(),1)
-
 
 if __name__ == '__main__':
     unittest.main()
