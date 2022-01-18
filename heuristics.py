@@ -122,6 +122,17 @@ class FILOEvaluation(ClauseEvaluationFunction):
         return self.filocounter
 
 
+"""ZZ:  Horn Clauses"""
+class HornEvaluation(ClauseEvaluationFunction):
+        def __init__(self):
+            self.name = "HornEval"
+            self.head = None
+            self.premise_symbols = None
+
+        def hEval(self, clause):
+            return clause.isHorn()
+
+
 class SymbolCountEvaluation(ClauseEvaluationFunction):
     """
     Implement a standard symbol counting heuristic.
@@ -199,6 +210,8 @@ class EvalStructure(object):
         self.current_count = self.current_count - 1
         return self.current
 
+"""ZZ:  Horn Clauses"""
+HornEval        = EvalStructure([(HornEvaluation(),1)])
 
 FIFOEval        = EvalStructure([(FIFOEvaluation(),1)])
 """
@@ -230,7 +243,10 @@ PickGiven5_FIFO      = EvalStructure([(SymbolCountEvaluation(2,1),5),
 PickGiven5_FILO      = EvalStructure([(SymbolCountEvaluation(2,1),5),
                                  (FILOEvaluation(),1)])
 
-PickGiven5           = PickGiven5_FIFO
+PickGiven5_Horn      = EvalStructure([(SymbolCountEvaluation(2,1),5),
+                                 (HornEvaluation(),1)])
+
+PickGiven5           = PickGiven5_Horn
 """
 Experiences have shown that picking always the smallest clause (by
 symbol count) isn't optimal, but that it pays off to interleave smallest
@@ -246,7 +262,10 @@ PickGiven2_FIFO      = EvalStructure([(SymbolCountEvaluation(2,1),2),
 PickGiven2_FILO      = EvalStructure([(SymbolCountEvaluation(2,1),2),
                                  (FILOEvaluation(),1)])
 
-PickGiven2           = PickGiven2_FIFO
+PickGiven2_Horn      = EvalStructure([(SymbolCountEvaluation(2,1),2),
+                                 (HornEvaluation(),1)])
+
+PickGiven2           = PickGiven2_Horn
 
 """
 See above, but now with a pick-given ration of 2 for easier testing.
@@ -257,10 +276,13 @@ GivenClauseHeuristics = {
     "FIFO"       : FIFOEval,
     "FILO"       : FILOEval,
     "SymbolCount": SymbolCountEval,
+    "Horn": HornEval,
     "PickGiven5_FIFO" : PickGiven5_FIFO,
     "PickGiven5_FILO" : PickGiven5_FILO,
+    "PickGiven5_Horn" : PickGiven5_Horn,
     "PickGiven2_FIFO" : PickGiven2_FIFO,
     "PickGiven2_FILO" : PickGiven2_FILO,
+    "PickGiven2_Horn" : PickGiven2_Horn,
     "PickGiven2"      : PickGiven2,
     "PickGiven5"      : PickGiven5}
 """
@@ -364,12 +386,27 @@ cnf(c8,axiom,(c=d|h(i(a))!=h(i(e)))).
         self.assertEqual(e7, self.c7.weight(2,1))
         self.assertEqual(e8, self.c8.weight(2,1))
 
+    """ZZ:  Horn Clauses"""
+    def testHorn(self):
+        """
+        Test that symbol counting works as expected.
+        """
+        eval = HornEvaluation()
+        e1 = eval(self.c1)
+        e2 = eval(self.c2)
+        e3 = eval(self.c3)
+        e4 = eval(self.c4)
+        e5 = eval(self.c5)
+        e6 = eval(self.c6)
+        e7 = eval(self.c7)
+        e8 = eval(self.c8)
+
     def testEvalStructure(self):
         """
         Test composite evaluations.
         """
         eval_funs = EvalStructure([(SymbolCountEvaluation(2,1),2),
-                                   (FILOEvaluation(),1)])
+                                   (FIFOEvaluation(),1)])
 
         evals = eval_funs.evaluate(self.c1)
         self.assertEqual(len(evals), 2)
@@ -379,6 +416,18 @@ cnf(c8,axiom,(c=d|h(i(a))!=h(i(e)))).
         self.assertEqual(eval_funs.nextEval(),0)
         self.assertEqual(eval_funs.nextEval(),0)
         self.assertEqual(eval_funs.nextEval(),1)
+
+        # """ZZ:  Horn Clauses"""
+        # eval_funsHorn = EvalStructure([(HornEvaluation(),2), (FIFOEvaluation(),1)])
+        # evalsHorn = eval_funsHorn.evaluate(self.c1)
+        # self.assertEqual(len(evalsHorn), 2)
+        # self.assertEqual(eval_funsHorn.nextEval(),0)
+        # self.assertEqual(eval_funsHorn.nextEval(),0)
+        # self.assertEqual(eval_funsHorn.nextEval(),1)
+        # self.assertEqual(eval_funsHorn.nextEval(),0)
+        # self.assertEqual(eval_funsHorn.nextEval(),0)
+        # self.assertEqual(eval_funsHorn.nextEval(),1)
+
 
 if __name__ == '__main__':
     unittest.main()
