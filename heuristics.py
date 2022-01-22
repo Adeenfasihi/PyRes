@@ -429,7 +429,7 @@ cnf(c8,axiom,(c=d|h(i(a))!=h(i(e)))).
         """
         Test that symbol counting works as expected.
         """
-        eval = HornEvaluation()
+        eval = HornClauseEvaluation()
         e1 = eval(self.c1)
         e2 = eval(self.c2)
         e3 = eval(self.c3)
