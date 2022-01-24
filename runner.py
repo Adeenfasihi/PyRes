@@ -3,7 +3,7 @@ import subprocess, os
 
 benchmarks = os.listdir('benchmarks')
 args = ["python3", "pyres-fof.py", "-tifbp", "-H", "-n", "benchmarks/"]
-clauses = ["PickGiven5_FIFO", "PickGiven5_FILO", "PickGiven5_Horn", "PickGiven5_Unit"]
+clauses = ["PickGiven2_FIFO", "PickGiven2_FILO", "PickGiven2_Horn", "PickGiven2_Unit"]
 n = ["smallest", "largest"]
 
 
@@ -27,7 +27,3 @@ with open('file.csv', 'w', encoding='UTF8') as f:
 
                 args = ["python3", "pyres-fof.py", "-tifbp", "-H", "-n", "benchmarks/"]
                 writer.writerow([i, j, k, temp])
-
-                break
-            break
-        break
