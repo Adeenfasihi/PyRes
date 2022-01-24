@@ -1,0 +1,306 @@
+#
+# cnf(c4,negated_conjecture,~goal).
+#
+# cnf(reflexivity,axiom,X13=X13).
+#
+# cnf(c25,axiom,reflexive_rewrite(a,b)).
+#
+# cnf(c26,axiom,reflexive_rewrite(a,c)).
+#
+# cnf(symmetry,axiom,X14!=X15|X15=X14).
+#
+# cnf(transitivity,axiom,X16!=X18|X18!=X17|X16=X17).
+#
+#
+# cnf(c16,axiom,~rewrite(X20,X21)|reflexive_rewrite(X20,X21)).
+#
+# cnf(c19,axiom,X23!=X22|reflexive_rewrite(X23,X22)).
+#
+# cnf(c30,plain,reflexive_rewrite(X24,X24)).
+#
+#
+# cnf(c0,plain,X27!=X29|X26!=X28|~reflexive_rewrite(X27,X26)|reflexive_rewrite(X29,X28)).
+#
+#
+# cnf(c13,axiom,~reflexive_rewrite(X32,X33)|X32=X33|rewrite(X32,X33)).
+#
+#
+# cnf(c24,axiom,~reflexive_rewrite(b,X35)|~reflexive_rewrite(c,X35)|goal).
+#
+# cnf(c36,plain,~reflexive_rewrite(c,b)|goal).
+#
+# cnf(c1,plain,X37!=X39|X36!=X38|~rewrite(X37,X36)|rewrite(X39,X38)).
+#
+#
+# cnf(c32,plain,X43!=X42|~reflexive_rewrite(X44,X43)|reflexive_rewrite(X44,X42)).
+#
+#
+# cnf(c34,plain,a=c|rewrite(a,c)).
+#
+# cnf(c35,plain,a=b|rewrite(a,b)).
+#
+# cnf(c9,axiom,~rewrite(X47,X48)|~rewrite(X47,X49)|rewrite(X48,skolem0001(X47,X48,X49))).
+#
+# cnf(c37,plain,X51!=X50|~rewrite(X51,X51)|rewrite(X50,X50)).
+#
+#
+# cnf(c38,plain,X54!=X53|~rewrite(X55,X54)|rewrite(X55,X53)).
+#
+#
+# cnf(c43,plain,rewrite(a,c)|c=a).
+#
+# cnf(c10,axiom,~rewrite(X58,X59)|~rewrite(X58,X60)|rewrite(X60,skolem0001(X58,X59,X60))).
+#
+#
+#
+# cnf(c50,plain,rewrite(a,b)|b=a).
+#
+#
+#
+# cnf(c40,plain,rewrite(a,c)|X62!=X61|~rewrite(a,X62)|rewrite(c,X61)).
+#
+# cnf(c54,plain,~rewrite(X64,X63)|rewrite(X63,skolem0001(X64,X63,X63))).
+#
+#
+#
+# cnf(c72,plain,rewrite(a,c)|reflexive_rewrite(c,a)).
+#
+#
+# cnf(c41,plain,rewrite(a,c)|X68!=X67|~reflexive_rewrite(a,X68)|reflexive_rewrite(c,X67)).
+#
+#
+#
+# cnf(c87,plain,rewrite(a,b)|reflexive_rewrite(b,a)).
+#
+#
+#
+# cnf(c42,plain,rewrite(a,c)|~reflexive_rewrite(X69,a)|reflexive_rewrite(X69,c)).
+#
+#
+#
+# cnf(c111,plain,rewrite(a,b)|~reflexive_rewrite(c,a)|goal).
+#
+# cnf(c116,plain,rewrite(a,b)|goal|rewrite(a,c)).
+#
+# cnf(c121,plain,rewrite(a,b)|rewrite(a,c)).
+#
+# cnf(c44,plain,rewrite(a,c)|c!=X70|a=X70).
+#
+#
+#
+#
+#
+#
+# cnf(c47,plain,rewrite(a,b)|X72!=X71|~rewrite(a,X72)|rewrite(b,X71)).
+#
+#
+# cnf(c49,plain,rewrite(a,b)|~reflexive_rewrite(X73,a)|reflexive_rewrite(X73,b)).
+#
+#
+#
+# cnf(c51,plain,rewrite(a,b)|b!=X74|a=X74).
+#
+# cnf(c48,plain,rewrite(a,b)|X76!=X75|~reflexive_rewrite(a,X76)|reflexive_rewrite(b,X75)).
+#
+#
+#
+# cnf(c60,plain,~rewrite(X77,a)|rewrite(X77,c)|rewrite(a,c)).
+#
+# cnf(c61,plain,~rewrite(X78,a)|rewrite(X78,b)|rewrite(a,b)).
+#
+# cnf(c68,plain,rewrite(a,c)|~reflexive_rewrite(X79,c)|reflexive_rewrite(X79,a)).
+#
+# cnf(c55,plain,~rewrite(a,X80)|rewrite(c,skolem0001(a,c,X80))|a=c).
+#
+#
+#
+# cnf(c70,plain,rewrite(a,c)|~rewrite(X81,c)|rewrite(X81,a)).
+#
+# cnf(c71,plain,rewrite(a,c)|a!=X82|c=X82).
+#
+#
+# cnf(c56,plain,~rewrite(a,X83)|rewrite(b,skolem0001(a,b,X83))|a=b).
+#
+#
+# cnf(c83,plain,rewrite(a,b)|~reflexive_rewrite(X84,b)|reflexive_rewrite(X84,a)).
+#
+#
+#
+# cnf(c85,plain,rewrite(a,b)|~rewrite(X85,b)|rewrite(X85,a)).
+#
+# cnf(c57,plain,~rewrite(a,a)|rewrite(c,c)|rewrite(a,c)).
+#
+# cnf(c86,plain,rewrite(a,b)|a!=X86|b=X86).
+#
+#
+#
+# cnf(c91,plain,rewrite(a,c)|~rewrite(a,X87)|rewrite(c,X87)).
+#
+# cnf(c186,plain,rewrite(a,c)|rewrite(c,b)).
+#
+# cnf(c58,plain,~rewrite(a,a)|rewrite(b,b)|rewrite(a,b)).
+#
+#
+# cnf(c205,plain,rewrite(a,c)|reflexive_rewrite(c,b)).
+#
+# cnf(c215,plain,rewrite(a,c)|goal).
+#
+# cnf(c225,plain,rewrite(a,c)).
+#
+#
+# cnf(c63,plain,c=a|~rewrite(a,X88)|rewrite(c,skolem0001(a,c,X88))).
+#
+#
+#
+# cnf(c229,plain,rewrite(c,skolem0001(a,c,c))).
+#
+# cnf(c239,plain,reflexive_rewrite(c,skolem0001(a,c,c))).
+#
+#
+#
+#
+#
+# cnf(c226,plain,~rewrite(a,X89)|rewrite(X89,skolem0001(a,c,X89))).
+#
+#
+#
+#
+# cnf(c139,plain,rewrite(a,b)|~rewrite(a,X93)|rewrite(b,X93)).
+#
+# cnf(c248,plain,rewrite(a,b)|rewrite(b,c)).
+#
+#
+# cnf(c262,plain,rewrite(a,b)|reflexive_rewrite(b,c)).
+#
+#
+#
+# cnf(c273,plain,rewrite(a,b)|~reflexive_rewrite(c,c)|goal).
+#
+# cnf(c275,plain,rewrite(a,b)|goal).
+#
+# cnf(c286,plain,rewrite(a,b)).
+#
+#
+#
+#
+# cnf(c290,plain,rewrite(b,skolem0001(a,b,b))).
+#
+# cnf(c294,plain,rewrite(b,skolem0001(a,c,b))).
+#
+# cnf(c298,plain,reflexive_rewrite(b,skolem0001(a,b,b))).
+#
+# cnf(c302,plain,reflexive_rewrite(b,skolem0001(a,c,b))).
+#
+#
+#
+#
+#
+#
+# cnf(c303,plain,~reflexive_rewrite(c,skolem0001(a,b,b))|goal).
+#
+# cnf(c305,plain,~reflexive_rewrite(c,skolem0001(a,c,b))|goal).
+#
+# cnf(c76,plain,~rewrite(a,X98)|rewrite(X98,skolem0001(a,b,X98))|a=b).
+#
+# cnf(c287,plain,~rewrite(a,X99)|rewrite(X99,skolem0001(a,b,X99))).
+#
+#
+# cnf(c310,plain,rewrite(c,skolem0001(a,b,c))).
+#
+# cnf(c314,plain,reflexive_rewrite(c,skolem0001(a,b,c))).
+#
+#
+# cnf(c77,plain,b=a|~rewrite(a,X101)|rewrite(b,skolem0001(a,b,X101))).
+#
+# cnf(c228,plain,~rewrite(a,X102)|rewrite(c,skolem0001(a,c,X102))).
+#
+# cnf(c318,plain,rewrite(c,skolem0001(a,c,b))).
+#
+#
+# cnf(c323,plain,reflexive_rewrite(c,skolem0001(a,c,b))).
+#
+# cnf(c324,plain,goal).
+#
+#
+# SZS status Theorem
+# SZS output start CNFRefutation
+fof(goal_to_be_proved,conjecture,goal,input).
+fof(c2,negated_conjecture,(~goal),inference(assume_negation,status(cth),[goal_to_be_proved])).
+fof(c3,negated_conjecture,~goal,inference(fof_simplification,status(thm),[c2])).
+cnf(c4,negated_conjecture,~goal,inference(split_conjunct,status(thm),[c3])).
+fof(goal_ax,axiom,(![A]:((reflexive_rewrite(b,A)&reflexive_rewrite(c,A))=>goal)),input).
+fof(c20,axiom,(![A]:((~reflexive_rewrite(b,A)|~reflexive_rewrite(c,A))|goal)),inference(fof_nnf,status(thm),[goal_ax])).
+fof(c21,axiom,((![A]:(~reflexive_rewrite(b,A)|~reflexive_rewrite(c,A)))|goal),inference(shift_quantors,status(thm),[c20])).
+fof(c23,axiom,(![X12]:((~reflexive_rewrite(b,X12)|~reflexive_rewrite(c,X12))|goal)),inference(shift_quantors,status(thm),[fof(c22,axiom,((![X12]:(~reflexive_rewrite(b,X12)|~reflexive_rewrite(c,X12)))|goal),inference(variable_rename,status(thm),[c21])).])).
+cnf(c24,axiom,~reflexive_rewrite(b,X35)|~reflexive_rewrite(c,X35)|goal,inference(split_conjunct,status(thm),[c23])).
+fof(rewrite_in_reflexive_rewrite,axiom,(![A]:(![B]:(rewrite(A,B)=>reflexive_rewrite(A,B)))),input).
+fof(c14,axiom,(![A]:(![B]:(~rewrite(A,B)|reflexive_rewrite(A,B)))),inference(fof_nnf,status(thm),[rewrite_in_reflexive_rewrite])).
+fof(c15,axiom,(![X8]:(![X9]:(~rewrite(X8,X9)|reflexive_rewrite(X8,X9)))),inference(variable_rename,status(thm),[c14])).
+cnf(c16,axiom,~rewrite(X20,X21)|reflexive_rewrite(X20,X21),inference(split_conjunct,status(thm),[c15])).
+fof(rewrite_diamond,axiom,(![A]:(![B]:(![C]:((rewrite(A,B)&rewrite(A,C))=>(?[D]:(rewrite(B,D)&rewrite(C,D))))))),input).
+fof(c5,axiom,(![A]:(![B]:(![C]:((~rewrite(A,B)|~rewrite(A,C))|(?[D]:(rewrite(B,D)&rewrite(C,D))))))),inference(fof_nnf,status(thm),[rewrite_diamond])).
+fof(c6,axiom,(![X2]:(![X3]:(![X4]:((~rewrite(X2,X3)|~rewrite(X2,X4))|(?[X5]:(rewrite(X3,X5)&rewrite(X4,X5))))))),inference(variable_rename,status(thm),[c5])).
+fof(c7,axiom,(![X2]:(![X3]:(![X4]:((~rewrite(X2,X3)|~rewrite(X2,X4))|(rewrite(X3,skolem0001(X2,X3,X4))&rewrite(X4,skolem0001(X2,X3,X4))))))),inference(skolemize,status(esa),[c6])).
+fof(c8,axiom,(![X2]:(![X3]:(![X4]:(((~rewrite(X2,X3)|~rewrite(X2,X4))|rewrite(X3,skolem0001(X2,X3,X4)))&((~rewrite(X2,X3)|~rewrite(X2,X4))|rewrite(X4,skolem0001(X2,X3,X4))))))),inference(distribute,status(thm),[c7])).
+cnf(c10,axiom,~rewrite(X58,X59)|~rewrite(X58,X60)|rewrite(X60,skolem0001(X58,X59,X60)),inference(split_conjunct,status(thm),[c8])).
+cnf(reflexivity,axiom,X13=X13,eq_axiom).
+fof(equal_in_reflexive_rewrite,axiom,(![A]:(![B]:(A=B=>reflexive_rewrite(A,B)))),input).
+fof(c17,axiom,(![A]:(![B]:(A!=B|reflexive_rewrite(A,B)))),inference(fof_nnf,status(thm),[equal_in_reflexive_rewrite])).
+fof(c18,axiom,(![X10]:(![X11]:(X10!=X11|reflexive_rewrite(X10,X11)))),inference(variable_rename,status(thm),[c17])).
+cnf(c19,axiom,X23!=X22|reflexive_rewrite(X23,X22),inference(split_conjunct,status(thm),[c18])).
+cnf(c30,plain,reflexive_rewrite(X24,X24),inference(resolution,status(thm),[c19, reflexivity])).
+cnf(c36,plain,~reflexive_rewrite(c,b)|goal,inference(resolution,status(thm),[c24, c30])).
+cnf(symmetry,axiom,X14!=X15|X15=X14,eq_axiom).
+fof(assumption,axiom,(reflexive_rewrite(a,b)&reflexive_rewrite(a,c)),input).
+cnf(c26,axiom,reflexive_rewrite(a,c),inference(split_conjunct,status(thm),[assumption])).
+fof(equal_or_rewrite,axiom,(![A]:(![B]:(reflexive_rewrite(A,B)=>(A=B|rewrite(A,B))))),input).
+fof(c11,axiom,(![A]:(![B]:(~reflexive_rewrite(A,B)|(A=B|rewrite(A,B))))),inference(fof_nnf,status(thm),[equal_or_rewrite])).
+fof(c12,axiom,(![X6]:(![X7]:(~reflexive_rewrite(X6,X7)|(X6=X7|rewrite(X6,X7))))),inference(variable_rename,status(thm),[c11])).
+cnf(c13,axiom,~reflexive_rewrite(X32,X33)|X32=X33|rewrite(X32,X33),inference(split_conjunct,status(thm),[c12])).
+cnf(c34,plain,a=c|rewrite(a,c),inference(resolution,status(thm),[c13, c26])).
+cnf(c43,plain,rewrite(a,c)|c=a,inference(resolution,status(thm),[c34, symmetry])).
+cnf(c72,plain,rewrite(a,c)|reflexive_rewrite(c,a),inference(resolution,status(thm),[c43, c19])).
+cnf(c25,axiom,reflexive_rewrite(a,b),inference(split_conjunct,status(thm),[assumption])).
+cnf(c35,plain,a=b|rewrite(a,b),inference(resolution,status(thm),[c13, c25])).
+cnf(c50,plain,rewrite(a,b)|b=a,inference(resolution,status(thm),[c35, symmetry])).
+cnf(c87,plain,rewrite(a,b)|reflexive_rewrite(b,a),inference(resolution,status(thm),[c50, c19])).
+cnf(c111,plain,rewrite(a,b)|~reflexive_rewrite(c,a)|goal,inference(resolution,status(thm),[c87, c24])).
+cnf(c116,plain,rewrite(a,b)|goal|rewrite(a,c),inference(resolution,status(thm),[c111, c72])).
+cnf(c121,plain,rewrite(a,b)|rewrite(a,c),inference(resolution,status(thm),[c116, c4])).
+cnf(c1,plain,X37!=X39|X36!=X38|~rewrite(X37,X36)|rewrite(X39,X38),eq_axiom).
+cnf(c40,plain,rewrite(a,c)|X62!=X61|~rewrite(a,X62)|rewrite(c,X61),inference(resolution,status(thm),[c34, c1])).
+cnf(c91,plain,rewrite(a,c)|~rewrite(a,X87)|rewrite(c,X87),inference(resolution,status(thm),[c40, reflexivity])).
+cnf(c186,plain,rewrite(a,c)|rewrite(c,b),inference(resolution,status(thm),[c91, c121])).
+cnf(c205,plain,rewrite(a,c)|reflexive_rewrite(c,b),inference(resolution,status(thm),[c186, c16])).
+cnf(c215,plain,rewrite(a,c)|goal,inference(resolution,status(thm),[c205, c36])).
+cnf(c225,plain,rewrite(a,c),inference(resolution,status(thm),[c215, c4])).
+cnf(c226,plain,~rewrite(a,X89)|rewrite(X89,skolem0001(a,c,X89)),inference(resolution,status(thm),[c225, c10])).
+cnf(c47,plain,rewrite(a,b)|X72!=X71|~rewrite(a,X72)|rewrite(b,X71),inference(resolution,status(thm),[c35, c1])).
+cnf(c139,plain,rewrite(a,b)|~rewrite(a,X93)|rewrite(b,X93),inference(resolution,status(thm),[c47, reflexivity])).
+cnf(c248,plain,rewrite(a,b)|rewrite(b,c),inference(resolution,status(thm),[c139, c225])).
+cnf(c262,plain,rewrite(a,b)|reflexive_rewrite(b,c),inference(resolution,status(thm),[c248, c16])).
+cnf(c273,plain,rewrite(a,b)|~reflexive_rewrite(c,c)|goal,inference(resolution,status(thm),[c262, c24])).
+cnf(c275,plain,rewrite(a,b)|goal,inference(resolution,status(thm),[c273, c30])).
+cnf(c286,plain,rewrite(a,b),inference(resolution,status(thm),[c275, c4])).
+cnf(c294,plain,rewrite(b,skolem0001(a,c,b)),inference(resolution,status(thm),[c286, c226])).
+cnf(c302,plain,reflexive_rewrite(b,skolem0001(a,c,b)),inference(resolution,status(thm),[c294, c16])).
+cnf(c305,plain,~reflexive_rewrite(c,skolem0001(a,c,b))|goal,inference(resolution,status(thm),[c302, c24])).
+cnf(c9,axiom,~rewrite(X47,X48)|~rewrite(X47,X49)|rewrite(X48,skolem0001(X47,X48,X49)),inference(split_conjunct,status(thm),[c8])).
+cnf(c228,plain,~rewrite(a,X102)|rewrite(c,skolem0001(a,c,X102)),inference(resolution,status(thm),[c225, c9])).
+cnf(c318,plain,rewrite(c,skolem0001(a,c,b)),inference(resolution,status(thm),[c228, c286])).
+cnf(c323,plain,reflexive_rewrite(c,skolem0001(a,c,b)),inference(resolution,status(thm),[c318, c16])).
+cnf(c324,plain,goal,inference(resolution,status(thm),[c323, c305])).
+cnf(c326,plain,$false,inference(resolution,status(thm),[c324, c4])).
+# SZS output end CNFRefutation
+
+# Initial clauses    : 14
+# Processed clauses  : 79
+# Factors computed   : 5
+# Resolvents computed: 295
+# Tautologies deleted: 5
+# Forward subsumed   : 60
+# Backward subsumed  : 43
+# -------- CPU Time ---------
+# User time          : 0.087 s
+# System time        : 0.047 s
+# Total time         : 0.134 s
