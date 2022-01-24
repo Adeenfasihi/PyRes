@@ -85,37 +85,46 @@ class UnitClauseEvaluation(ClauseEvaluationFunction):
     """
     Class represeting unit evaluation of clauses.
     """
-    def __init__(self):
+    def __init__(self, fweight=2, vweight=1, ufweight=5, uvweight=3):
         """
         Initialize object
         """
-        self.name = "Sample"
+        self.name = "UnitEvaluation"
+        self.fweight = fweight
+        self.vweight = vweight
+        self.ufweight = ufweight
+        self.uvweight = uvweight
     
     def hEval(self, clause):
         """
         Sample ordering of clause different
         """
         if clause.isUnit():
-            return clause.weight(5, 3)
-        return clause.weight(2, 1)
+            return clause.weight(self.ufweight, self.uvweight)
+        return clause.weight(self.fweight, self.vweight)
 
 class HornClauseEvaluation(ClauseEvaluationFunction):
     """
     Class represeting Horn clouse evaluation of clauses.
     """
-    def __init__(self):
+    def __init__(self, fweight=2, vweight=1, hfweight=5, hvweight=3):
         """
         Initialize object
         """
-        self.name = "Sample"
+        self.name = "HornEvaluation"
+        self.fweight = fweight
+        self.vweight = vweight
+        self.hfweight = hfweight
+        self.hvweight = hvweight
+        
     
     def hEval(self, clause):
         """
         Sample ordering of clause different
         """
         if clause.isHorn():
-            return clause.weight(5, 3)
-        return clause.weight(2, 1)
+            return clause.weight(self.hfweight, self.hvweight)
+        return clause.weight(self.fweight, self.vweight)
 
 class FIFOEvaluation(ClauseEvaluationFunction):
     """
