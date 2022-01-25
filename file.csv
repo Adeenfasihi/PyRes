@@ -1,1 +1,0 @@
-COM007+2.p,PickGiven5_FIFO,smallest,"['Initial clauses    : 14', 'Processed clauses  : 79', 'Factors computed   : 5', 'Resolvents computed: 295', 'Tautologies deleted: 5', 'Forward subsumed   : 60', 'Backward subsumed  : 43', '-------- CPU Time ---------', 'User time          : 0.087 s', 'System time        : 0.047 s', 'Total time         : 0.134 s']"

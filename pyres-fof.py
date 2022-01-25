@@ -89,7 +89,7 @@ Email: schulz@eprover.org
 """
 
 import sys
-from resource import RLIMIT_STACK, setrlimit, getrlimit
+from resource import RLIMIT_CPU, RLIMIT_STACK, setrlimit, getrlimit
 import getopt
 from signal import  signal, SIGXCPU
 from resource import getrusage, RUSAGE_SELF
@@ -180,7 +180,9 @@ if __name__ == '__main__':
         # For reasons nobody understands, this seems to fail on
         # OS-X. In that case, we just do our best...
         pass
-
+    
+    soft, hard = getrlimit(RLIMIT_CPU)
+    setrlimit(RLIMIT_CPU, (50, hard))
     signal(SIGXCPU, timeoutHandler)
     sys.setrecursionlimit(10000)
 

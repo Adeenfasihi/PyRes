@@ -1,0 +1,24 @@
+COM007+2.p,PickGiven2_Unit,smallest,"['Initial clauses    : 14', 'Processed clauses  : 97', 'Factors computed   : 5', 'Resolvents computed: 488', 'Tautologies deleted: 5', 'Forward subsumed   : 110', 'Backward subsumed  : 66', '-------- CPU Time ---------', 'User time          : 0.151 s', 'System time        : 0.000 s', 'Total time         : 0.151 s']"
+COM007+2.p,PickGiven2_Unit,largest,"['Initial clauses    : 14', 'Processed clauses  : 61', 'Factors computed   : 4', 'Resolvents computed: 136', 'Tautologies deleted: 2', 'Forward subsumed   : 48', 'Backward subsumed  : 18', '-------- CPU Time ---------', 'User time          : 0.086 s', 'System time        : 0.021 s', 'Total time         : 0.107 s']"
+ITP018+1.p,PickGiven2_Unit,smallest,
+ITP018+1.p,PickGiven2_Unit,largest,
+ITP019+1.p,PickGiven2_Unit,smallest,
+ITP019+1.p,PickGiven2_Unit,largest,
+KRS203+1.p,PickGiven2_Unit,smallest,"['Initial clauses    : 109', 'Processed clauses  : 852', 'Factors computed   : 4', 'Resolvents computed: 16615', 'Tautologies deleted: 1', 'Forward subsumed   : 10794', 'Backward subsumed  : 106', '-------- CPU Time ---------', 'User time          : 8.111 s', 'System time        : 0.010 s', 'Total time         : 8.121 s']"
+KRS203+1.p,PickGiven2_Unit,largest,"['Initial clauses    : 109', 'Processed clauses  : 975', 'Factors computed   : 6', 'Resolvents computed: 24674', 'Tautologies deleted: 2', 'Forward subsumed   : 17367', 'Backward subsumed  : 107', '-------- CPU Time ---------', 'User time          : 12.218 s', 'System time        : 0.000 s', 'Total time         : 12.218 s']"
+KRS266+1.p,PickGiven2_Unit,smallest,
+KRS266+1.p,PickGiven2_Unit,largest,
+MED008+1.p,PickGiven2_Unit,smallest,
+MED008+1.p,PickGiven2_Unit,largest,
+MGT037+1.p,PickGiven2_Unit,smallest,
+MGT037+1.p,PickGiven2_Unit,largest,
+MGT061+1.p,PickGiven2_Unit,smallest,
+MGT061+1.p,PickGiven2_Unit,largest,
+MGT067+1.p,PickGiven2_Unit,smallest,"['Initial clauses    : 180', 'Processed clauses  : 407', 'Factors computed   : 0', 'Resolvents computed: 264', 'Tautologies deleted: 0', 'Forward subsumed   : 15', 'Backward subsumed  : 8', '-------- CPU Time ---------', 'User time          : 0.598 s', 'System time        : 0.021 s', 'Total time         : 0.618 s']"
+MGT067+1.p,PickGiven2_Unit,largest,"['Initial clauses    : 180', 'Processed clauses  : 700', 'Factors computed   : 0', 'Resolvents computed: 557', 'Tautologies deleted: 0', 'Forward subsumed   : 15', 'Backward subsumed  : 9', '-------- CPU Time ---------', 'User time          : 1.688 s', 'System time        : 0.000 s', 'Total time         : 1.688 s']"
+NLP141+1.p,PickGiven2_Unit,smallest,"['Initial clauses    : 154', 'Processed clauses  : 468', 'Factors computed   : 79', 'Resolvents computed: 784', 'Tautologies deleted: 129', 'Forward subsumed   : 16', 'Backward subsumed  : 5', '-------- CPU Time ---------', 'User time          : 0.327 s', 'System time        : 0.000 s', 'Total time         : 0.327 s']"
+NLP141+1.p,PickGiven2_Unit,largest,"['Initial clauses    : 154', 'Processed clauses  : 576', 'Factors computed   : 2', 'Resolvents computed: 604', 'Tautologies deleted: 3', 'Forward subsumed   : 146', 'Backward subsumed  : 0', '-------- CPU Time ---------', 'User time          : 0.396 s', 'System time        : 0.010 s', 'Total time         : 0.406 s']"
+NLP145+1.p,PickGiven2_Unit,smallest,"['Initial clauses    : 154', 'Processed clauses  : 494', 'Factors computed   : 80', 'Resolvents computed: 804', 'Tautologies deleted: 129', 'Forward subsumed   : 17', 'Backward subsumed  : 5', '-------- CPU Time ---------', 'User time          : 0.591 s', 'System time        : 0.011 s', 'Total time         : 0.601 s']"
+NLP145+1.p,PickGiven2_Unit,largest,"['Initial clauses    : 154', 'Processed clauses  : 597', 'Factors computed   : 2', 'Resolvents computed: 642', 'Tautologies deleted: 3', 'Forward subsumed   : 154', 'Backward subsumed  : 0', '-------- CPU Time ---------', 'User time          : 0.429 s', 'System time        : 0.011 s', 'Total time         : 0.439 s']"
+NUN080+1.p,PickGiven2_Unit,smallest,
+NUN080+1.p,PickGiven2_Unit,largest,
