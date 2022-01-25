@@ -5,9 +5,9 @@ import subprocess, os
 
 benchmarks = os.listdir('benchmarks')
 args = ["python3", "pyres-fof.py", "-tifbp", "-H", "-n", "benchmarks/"]
-# clauses = ["PickGiven2_FIFO", "PickGiven2_FILO", "PickGiven2_Horn", "PickGiven2_Unit"]
+clauses = ["PickGiven2_FIFO", "PickGiven2_FILO", "PickGiven2_Horn", "PickGiven2_Unit"]
 # clauses = ["PickGiven2_Horn", "PickGiven2_Unit"]
-clauses = ["PickGiven2_Horn"]
+# clauses = ["PickGiven2_FILO"]
 n = ["smallest", "largest"]
 
 for i in benchmarks:
@@ -33,7 +33,11 @@ for i in benchmarks:
                     temp = [s.strip('# ') for s in temp]
 
             args = ["python3", "pyres-fof.py", "-tifbp", "-H", "-n", "benchmarks/"]
-            with open('horn.csv', 'a', encoding='UTF8') as f:
+            with open('all_approaches.csv', 'a', encoding='UTF8') as f:
                 if temp is not None:
-                    writer = csv.writer(f)
-                    writer.writerow([i, j, k, temp])
+                    for t in temp:
+                        if "Initial clauses    :" in t:
+                            writer = csv.writer(f)
+                            writer.writerow([i, j, k, temp])
+                        else:
+                            break

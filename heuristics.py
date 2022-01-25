@@ -156,7 +156,7 @@ class FILOEvaluation(ClauseEvaluationFunction):
         Initialize object.
         """
         self.name        = "FILOEval"
-        self.filocounter = 8
+        self.filocounter = 0
 
     def hEval(self, clause):
         """
